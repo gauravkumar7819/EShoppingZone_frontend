@@ -7,7 +7,7 @@ export default defineConfig({
     port: 5173,
     proxy: {
       '/api': {
-        target: 'http://localhost:5000',
+        target: 'https://api-gateway.bluetree-541edc58.centralindia.azurecontainerapps.io',
         changeOrigin: true,
       }
     }

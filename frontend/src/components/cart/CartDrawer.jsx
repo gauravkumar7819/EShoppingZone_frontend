@@ -17,7 +17,7 @@ const CartDrawer = () => {
       />
 
       {/* Drawer */}
-      <div className="fixed right-0 top-0 h-full w-full max-w-md bg-white shadow-xl z-50 animate-slide-in flex flex-col">
+      <div data-testid="cart-drawer" className="fixed right-0 top-0 h-full w-full max-w-md bg-white shadow-xl z-50 animate-slide-in flex flex-col">
         {/* Header */}
         <div className="flex justify-between items-center p-4 border-b">
           <h2 className="text-xl font-semibold">Your Cart ({cart?.items?.length || 0})</h2>
@@ -120,6 +120,7 @@ const CartDrawer = () => {
             <Link
               to="/checkout"
               onClick={() => setIsOpen(false)}
+              data-testid="proceed-to-checkout"
               className="w-full btn-primary py-3 text-center block font-semibold"
             >
               Proceed to Checkout

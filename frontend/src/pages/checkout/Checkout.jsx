@@ -338,6 +338,7 @@ const CheckoutContent = () => {
                     value="COD"
                     checked={paymentMethod === 'COD'}
                     onChange={() => setPaymentMethod('COD')}
+                    data-testid="payment-method-cod"
                     className="h-5 w-5 text-primary-600 focus:ring-primary-500 border-gray-300"
                   />
                   <div className="flex-1">
@@ -366,6 +367,7 @@ const CheckoutContent = () => {
                     checked={paymentMethod === 'Wallet'}
                     onChange={() => setPaymentMethod('Wallet')}
                     disabled={balance < totalAmount}
+                    data-testid="payment-method-wallet"
                     className="h-5 w-5 text-primary-600 focus:ring-primary-500 border-gray-300"
                   />
                   <div className="flex-1">
@@ -434,7 +436,7 @@ const CheckoutContent = () => {
                 <div className="border-t border-gray-200 pt-4 mt-4">
                   <div className="flex justify-between items-center">
                     <span className="text-lg font-bold text-gray-900">Total</span>
-                    <span className="text-2xl font-bold text-primary-600">₹{totalAmount.toLocaleString()}</span>
+                    <span className="text-2xl font-bold text-primary-600" data-testid="order-total">₹{totalAmount.toLocaleString()}</span>
                   </div>
                 </div>
               </div>
@@ -451,6 +453,7 @@ const CheckoutContent = () => {
               <button
                 onClick={handlePlaceOrder}
                 disabled={loading || !selectedAddress || (paymentMethod === 'Wallet' && balance < totalAmount)}
+                data-testid="place-order-button"
                 className="w-full btn-premium py-4 mt-6 disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2"
               >
                 {loading ? (

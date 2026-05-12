@@ -45,7 +45,7 @@ const ProductCard = ({ product }) => {
 
   return (
     <div className="card-premium group">
-      <Link to={`/product/${product.id}`}>
+      <Link to={`/product/${product.id}`} data-testid={`product-card-${product.id}`}>
         <div className="relative h-64 bg-gray-100 overflow-hidden">
           {product.images?.[0] || product.imageUrl || product.image ? (
             <img
@@ -71,6 +71,7 @@ const ProductCard = ({ product }) => {
             <button 
               onClick={handleAddToCart}
               disabled={loading || product.stockQuantity === 0}
+              data-testid="add-to-cart-button"
               className="bg-white text-primary-600 p-4 rounded-full shadow-2xl transform translate-y-4 group-hover:translate-y-0 transition-transform duration-300 hover:bg-primary-600 hover:text-white"
             >
               <ShoppingCartIcon className="h-6 w-6" />

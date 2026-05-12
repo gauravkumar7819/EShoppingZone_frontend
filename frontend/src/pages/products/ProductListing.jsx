@@ -91,10 +91,12 @@ const ProductListing = () => {
               value={searchTerm}
               onChange={(e) => setSearchTerm(e.target.value)}
               placeholder="Search products, brands, and more..."
+              data-testid="search-input"
               className="w-full bg-white/95 backdrop-blur-sm px-6 py-4 rounded-2xl shadow-xl outline-none text-gray-800 placeholder-gray-400 focus:ring-4 focus:ring-white/20 transition-all border-none"
             />
             <button
               type="submit"
+              data-testid="search-button"
               className="absolute right-2 top-1/2 -translate-y-1/2 bg-primary-600 text-white p-3 rounded-xl hover:bg-primary-700 transition-all hover:scale-105 shadow-lg"
             >
               <MagnifyingGlassIcon className="h-6 w-6" />
@@ -136,6 +138,7 @@ const ProductListing = () => {
                 <button
                   key={category}
                   onClick={() => handleCategoryChange(category)}
+                  data-testid={`category-filter-${category.toLowerCase().replace(/\s+/g, '-')}`}
                   className={`w-full text-left px-4 py-3 rounded-xl transition-all duration-200 group flex items-center justify-between ${
                     selectedCategory === category
                       ? 'bg-primary-600 text-white font-bold shadow-lg shadow-primary-500/30'
