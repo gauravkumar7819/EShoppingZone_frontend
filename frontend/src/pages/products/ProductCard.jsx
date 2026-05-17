@@ -61,7 +61,7 @@ const ProductCard = ({ product }) => {
           
           {/* Discount Badge */}
           {discount > 0 && (
-            <div className="absolute top-4 left-4 bg-red-600 text-white text-[10px] font-black px-2.5 py-1 rounded-full shadow-lg">
+            <div className="absolute top-4 left-4 bg-accent-600 text-white text-[11px] font-black px-3 py-1.5 rounded-lg shadow-xl uppercase tracking-tighter">
               {discount}% OFF
             </div>
           )}
@@ -94,21 +94,21 @@ const ProductCard = ({ product }) => {
             </h3>
           </div>
           
-          <div className="flex items-center gap-1.5 mb-4">
+          <div className="flex items-center gap-1.5 mb-5">
             <div className="flex items-center">
               {renderStars(product.averageRating || 4.5)}
             </div>
-            <span className="text-[10px] font-bold text-gray-400">({product.totalReviews || 124})</span>
+            <span className="text-xs font-bold text-slate-400">({product.totalReviews || 124})</span>
           </div>
 
           <div className="flex items-end justify-between">
             <div className="flex flex-col">
-              <span className="text-2xl font-black text-gray-900">₹{product.price?.toLocaleString()}</span>
+              <span className="text-2xl font-black text-slate-900 font-brand tracking-tight">₹{product.price?.toLocaleString()}</span>
               {discount > 0 && (
-                <span className="text-xs text-gray-400 line-through font-medium">₹{product.mrp?.toLocaleString()}</span>
+                <span className="text-sm text-slate-400 line-through font-medium">₹{product.mrp?.toLocaleString()}</span>
               )}
             </div>
-            <div className="text-[10px] font-bold text-primary-600 uppercase tracking-tighter bg-primary-50 px-2 py-1 rounded">
+            <div className="text-[10px] font-black text-primary-700 uppercase tracking-widest bg-primary-50 px-2.5 py-1.5 rounded-lg">
               {product.category}
             </div>
           </div>

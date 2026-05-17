@@ -32,9 +32,11 @@ const Footer = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           {/* Brand */}
           <div>
-            <h3 className="text-xl font-bold mb-4 text-primary-400">EShoppingZone</h3>
-            <p className="text-gray-400 text-sm mb-4">
-              Your one-stop shop for all your needs. Quality products, best prices, and exceptional service.
+            <h3 className="text-2xl font-brand font-black mb-4 text-white">
+              Shopping<span className="text-primary-500">Karo</span>
+            </h3>
+            <p className="text-gray-400 text-sm mb-6 leading-relaxed">
+              India's smartest way to shop. Quality products, best prices, and exceptional service delivered Dil Se!
             </p>
             <div className="flex space-x-4">
               <a href="#" className="text-gray-400 hover:text-white transition-colors">
@@ -78,18 +80,18 @@ const Footer = () => {
           {/* Contact & Newsletter */}
           <div>
             <h4 className="font-semibold mb-4">Contact Us</h4>
-            <ul className="space-y-3 text-sm text-gray-400 mb-6">
-              <li className="flex items-start gap-2">
-                <EnvelopeIcon className="h-5 w-5 flex-shrink-0 mt-0.5" />
-                <span>support@eshoppingzone.com</span>
+            <ul className="space-y-4 text-sm text-gray-400 mb-6">
+              <li className="flex items-start gap-3">
+                <EnvelopeIcon className="h-5 w-5 text-primary-500 flex-shrink-0 mt-0.5" />
+                <span>support@shoppingkaro.com</span>
               </li>
-              <li className="flex items-start gap-2">
-                <PhoneIcon className="h-5 w-5 flex-shrink-0 mt-0.5" />
-                <span>+91 1234567890</span>
+              <li className="flex items-start gap-3">
+                <PhoneIcon className="h-5 w-5 text-primary-500 flex-shrink-0 mt-0.5" />
+                <span>+91 1800-SHOP-KARO</span>
               </li>
-              <li className="flex items-start gap-2">
-                <MapPinIcon className="h-5 w-5 flex-shrink-0 mt-0.5" />
-                <span>123 Shopping Street, Mumbai, India</span>
+              <li className="flex items-start gap-3">
+                <MapPinIcon className="h-5 w-5 text-primary-500 flex-shrink-0 mt-0.5" />
+                <span>ShoppingKaro HQ, Bandra West, Mumbai, MH</span>
               </li>
             </ul>
 
@@ -135,7 +137,7 @@ const Footer = () => {
               </div>
             </div>
             <div className="text-sm text-gray-400">
-              <p>&copy; 2024 EShoppingZone. All rights reserved.</p>
+              <p>&copy; 2026 ShoppingKaro India Private Limited. All rights reserved.</p>
             </div>
           </div>
         </div>

@@ -40,9 +40,13 @@ const Navbar = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
           {/* Logo */}
-          <Link to="/" className="flex items-center space-x-2">
-            <HomeIcon className="h-8 w-8 text-primary-600" />
-            <span className="font-bold text-xl text-gray-800 dark:text-gray-100 hidden sm:inline">EShoppingZone</span>
+          <Link to="/" className="flex items-center space-x-2 group">
+            <div className="bg-primary-600 p-2 rounded-xl group-hover:rotate-12 transition-transform duration-300 shadow-lg shadow-primary-500/20">
+              <ShoppingCartIcon className="h-6 w-6 text-white" />
+            </div>
+            <span className="font-brand font-extrabold text-2xl tracking-tight text-slate-900 dark:text-white">
+              Shopping<span className="text-primary-600">Karo</span>
+            </span>
           </Link>
 
           {/* Desktop Navigation */}
@@ -147,22 +151,21 @@ const Navbar = () => {
               </div>
             ) : (
               <div className="flex items-center space-x-3">
-                <Link to="/login" data-testid="login-link" className="text-gray-700 dark:text-gray-200 hover:text-primary-600 dark:hover:text-primary-400 font-medium px-3 py-2 rounded-lg transition-colors group relative">
+                <Link to="/login" data-testid="login-link" className="text-slate-700 dark:text-gray-200 hover:text-primary-600 dark:hover:text-primary-400 font-bold px-3 py-2 rounded-lg transition-all duration-300">
                   Login
-                  <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-primary-600 transition-all duration-300 group-hover:w-full"></span>
                 </Link>
                 <div className="relative group">
-                  <button className="btn-primary flex items-center gap-1 group">
+                  <button className="btn-primary flex items-center gap-2 group shadow-lg shadow-primary-500/30">
                     Register
-                    <svg className="w-4 h-4 transition-transform group-hover:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 9l-7 7-7-7" />
+                    <svg className="w-4 h-4 transition-transform group-hover:translate-y-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" d="M19 9l-7 7-7-7" />
                     </svg>
                   </button>
-                  <div className="absolute right-0 mt-2 w-48 bg-white dark:bg-gray-800 rounded-xl shadow-2xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 transform origin-top-right scale-95 group-hover:scale-100 z-50 border border-gray-100 dark:border-gray-700 overflow-hidden">
-                    <Link to="/register/customer" className="block px-4 py-3 text-sm text-gray-700 dark:text-gray-200 hover:bg-primary-50 dark:hover:bg-gray-700 hover:text-primary-600 dark:hover:text-primary-400 transition-colors">
+                  <div className="absolute right-0 mt-3 w-52 bg-white dark:bg-gray-800 rounded-2xl shadow-2xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 transform origin-top-right scale-95 group-hover:scale-100 z-50 border border-slate-100 dark:border-gray-700 overflow-hidden">
+                    <Link to="/register/customer" className="block px-5 py-4 text-sm font-bold text-slate-700 dark:text-gray-200 hover:bg-primary-50 dark:hover:bg-gray-700 hover:text-primary-600 dark:hover:text-primary-400 transition-colors border-b border-slate-50 dark:border-gray-700">
                       Join as Customer
                     </Link>
-                    <Link to="/register/merchant" className="block px-4 py-3 text-sm text-gray-700 dark:text-gray-200 hover:bg-primary-50 dark:hover:bg-gray-700 hover:text-primary-600 dark:hover:text-primary-400 transition-colors">
+                    <Link to="/register/merchant" className="block px-5 py-4 text-sm font-bold text-slate-700 dark:text-gray-200 hover:bg-primary-50 dark:hover:bg-gray-700 hover:text-primary-600 dark:hover:text-primary-400 transition-colors">
                       Join as Merchant
                     </Link>
                   </div>

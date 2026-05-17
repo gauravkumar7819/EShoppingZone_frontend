@@ -1,44 +1,85 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Outfit:wght@400;500;600;700;800&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 @layer base {
   body {
-    @apply bg-gray-50 font-sans antialiased;
+    @apply bg-slate-50 font-sans antialiased text-slate-900;
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    font-family: theme('fontFamily.brand');
+    @apply tracking-tight;
   }
 }
 
 @layer components {
   /* Buttons - Consistent Styles */
   .btn-primary {
-    @apply bg-primary-600 text-white px-5 py-2.5 rounded-xl hover:bg-primary-700 transition-all duration-200 font-semibold shadow-sm hover:shadow-md active:scale-95;
+    background-color: theme('colors.primary.600');
+    @apply text-white px-5 py-2.5 rounded-xl transition-all duration-300 font-semibold active:scale-95;
+    box-shadow: 0 4px 6px -1px rgba(79, 70, 229, 0.2);
+  }
+  .btn-primary:hover {
+    background-color: theme('colors.primary.700');
+    box-shadow: 0 10px 15px -3px rgba(79, 70, 229, 0.3);
   }
   
   .btn-secondary {
-    @apply bg-white text-gray-700 px-5 py-2.5 rounded-xl hover:bg-gray-50 transition-all duration-200 font-semibold border border-gray-200 shadow-sm hover:shadow-md active:scale-95;
+    @apply bg-white text-slate-700 px-5 py-2.5 rounded-xl transition-all duration-300 font-semibold border border-slate-200 shadow-sm active:scale-95;
+  }
+  .btn-secondary:hover {
+    @apply bg-slate-50 shadow-md;
+  }
+
+  .btn-cta {
+    background-color: theme('colors.secondary.500');
+    @apply text-white px-6 py-3 rounded-xl transition-all duration-300 font-bold active:scale-95;
+    box-shadow: 0 10px 15px -3px rgba(245, 158, 11, 0.3);
+  }
+  .btn-cta:hover {
+    background-color: theme('colors.secondary.600');
+    box-shadow: 0 20px 25px -5px rgba(245, 158, 11, 0.5);
+    @apply -translate-y-0.5;
   }
   
   .btn-danger {
-    @apply bg-red-600 text-white px-5 py-2.5 rounded-xl hover:bg-red-700 transition-all duration-200 font-semibold shadow-sm hover:shadow-md active:scale-95;
+    background-color: theme('colors.accent.600');
+    @apply text-white px-5 py-2.5 rounded-xl transition-all duration-300 font-semibold shadow-sm active:scale-95;
+  }
+  .btn-danger:hover {
+    background-color: theme('colors.accent.700');
+    @apply shadow-md;
   }
   
   .btn-success {
-    @apply bg-green-600 text-white px-5 py-2.5 rounded-xl hover:bg-green-700 transition-all duration-200 font-semibold shadow-sm hover:shadow-md active:scale-95;
+    @apply bg-emerald-600 text-white px-5 py-2.5 rounded-xl hover:bg-emerald-700 transition-all duration-300 font-semibold shadow-sm hover:shadow-md active:scale-95;
   }
 
   .btn-premium {
-    @apply relative overflow-hidden bg-gradient-to-r from-primary-600 to-primary-700 text-white px-6 py-3 rounded-xl font-bold 
-           transition-all duration-300 shadow-lg shadow-primary-500/30 
-           hover:shadow-primary-500/50 hover:-translate-y-0.5 active:translate-y-0 active:scale-95;
+    @apply relative overflow-hidden text-white px-6 py-3 rounded-xl font-bold transition-all duration-300 active:translate-y-0 active:scale-95;
+    background-image: linear-gradient(to right, theme('colors.primary.600'), theme('colors.primary.800'));
+    box-shadow: 0 20px 25px -5px rgba(79, 70, 229, 0.4);
+  }
+  .btn-premium:hover {
+    box-shadow: 0 25px 30px -5px rgba(79, 70, 229, 0.6);
+    @apply -translate-y-1;
   }
   
   .btn-ghost {
-    @apply text-gray-600 px-5 py-2.5 rounded-xl hover:bg-gray-100 transition-all duration-200 font-medium active:scale-95;
+    @apply text-slate-600 px-5 py-2.5 rounded-xl hover:bg-slate-100 transition-all duration-300 font-medium active:scale-95;
   }
   
   /* Inputs */
   .input-field {
-    @apply w-full px-4 py-3 border border-gray-200 rounded-xl focus:ring-2 focus:ring-primary-500/20 focus:border-primary-500 outline-none transition-all duration-200 bg-white;
+    border-color: theme('colors.slate.200');
+    @apply w-full px-4 py-3 rounded-xl outline-none transition-all duration-200 bg-white;
+  }
+  .input-field:focus {
+    border-color: theme('colors.primary.500');
+    box-shadow: 0 0 0 2px rgba(99, 102, 241, 0.2);
   }
   
   .input-field:focus {
@@ -85,7 +126,8 @@
 
   /* Loading State */
   .loading-spinner {
-    @apply animate-spin rounded-full h-12 w-12 border-b-2 border-primary-600;
+    @apply animate-spin rounded-full h-12 w-12 border-b-2;
+    border-bottom-color: theme('colors.primary.600');
   }
   
   .loading-dots {
@@ -132,7 +174,8 @@
   }
 
   .gradient-text {
-    @apply bg-clip-text text-transparent bg-gradient-to-r from-primary-600 to-primary-400;
+    @apply bg-clip-text text-transparent;
+    background-image: linear-gradient(to right, theme('colors.primary.600'), theme('colors.primary.400'));
   }
 
   .hover-lift {

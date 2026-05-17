@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { motion } from 'framer-motion';
 import { useSearchParams } from 'react-router-dom';
 import ProductCard from './ProductCard';
 import { productService } from '../../services/productService';
@@ -75,59 +76,60 @@ const ProductListing = () => {
   return (
     <div className="max-w-7xl mx-auto py-8 px-4 sm:px-6 lg:px-8">
       {/* Decorative Header */}
-      <div className="relative overflow-hidden rounded-3xl bg-gradient-to-r from-primary-600 to-primary-400 p-8 md:p-12 mb-12 shadow-2xl">
+      <div className="relative overflow-hidden rounded-[2.5rem] bg-gradient-to-br from-primary-700 via-primary-600 to-primary-800 p-10 md:p-16 mb-12 shadow-2xl shadow-primary-500/20">
         <div className="relative z-10">
-          <h1 className="text-4xl md:text-5xl font-extrabold text-white tracking-tight mb-4 animate-fade-in">
-            Discover Amazing Deals
-          </h1>
-          <p className="text-primary-50 text-lg max-w-xl opacity-90 mb-8 leading-relaxed">
-            From the latest gadgets to premium personal care, find everything you need in one place.
-          </p>
-          
-          {/* Integrated Search */}
-          <form onSubmit={handleSearch} className="max-w-xl relative group">
-            <input
-              type="text"
-              value={searchTerm}
-              onChange={(e) => setSearchTerm(e.target.value)}
-              placeholder="Search products, brands, and more..."
-              data-testid="search-input"
-              className="w-full bg-white/95 backdrop-blur-sm px-6 py-4 rounded-2xl shadow-xl outline-none text-gray-800 placeholder-gray-400 focus:ring-4 focus:ring-white/20 transition-all border-none"
-            />
-            <button
-              type="submit"
-              data-testid="search-button"
-              className="absolute right-2 top-1/2 -translate-y-1/2 bg-primary-600 text-white p-3 rounded-xl hover:bg-primary-700 transition-all hover:scale-105 shadow-lg"
-            >
-              <MagnifyingGlassIcon className="h-6 w-6" />
-            </button>
-          </form>
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+          >
+            <h1 className="text-5xl md:text-6xl font-brand font-black text-white tracking-tight mb-6 leading-tight">
+              Discover <span className="text-secondary-400">Amazing</span> Deals
+            </h1>
+            <p className="text-primary-50 text-xl max-w-2xl opacity-90 mb-10 leading-relaxed font-medium">
+              From the latest tech gadgets to artisanal lifestyle products, ShoppingKaro brings the best of India and the world to your screen.
+            </p>
+            
+            {/* Integrated Search */}
+            <form onSubmit={handleSearch} className="max-w-2xl relative group">
+              <input
+                type="text"
+                value={searchTerm}
+                onChange={(e) => setSearchTerm(e.target.value)}
+                placeholder="Search products, brands, and more..."
+                data-testid="search-input"
+                className="w-full bg-white/95 backdrop-blur-xl px-8 py-5 rounded-2xl shadow-2xl outline-none text-slate-800 placeholder-slate-400 focus:ring-4 focus:ring-white/30 transition-all border-none font-medium text-lg"
+              />
+              <button
+                type="submit"
+                data-testid="search-button"
+                className="absolute right-3 top-1/2 -translate-y-1/2 bg-primary-600 text-white p-4 rounded-xl hover:bg-primary-700 transition-all hover:scale-105 shadow-xl shadow-primary-500/30"
+              >
+                <MagnifyingGlassIcon className="h-7 w-7" />
+              </button>
+            </form>
+          </motion.div>
         </div>
         
         {/* Background Decorations */}
-        <div className="absolute -right-20 -bottom-20 w-80 h-80 bg-white/10 rounded-full blur-3xl"></div>
-        <div className="absolute top-0 right-0 p-8 opacity-20">
-          <svg className="w-64 h-64 text-white" viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <circle cx="100" cy="100" r="100" fill="currentColor" />
-          </svg>
-        </div>
+        <div className="absolute -right-20 -bottom-20 w-96 h-96 bg-white/10 rounded-full blur-[100px]"></div>
+        <div className="absolute -left-10 -top-10 w-64 h-64 bg-secondary-500/20 rounded-full blur-[80px]"></div>
       </div>
 
       <div className="flex flex-col lg:flex-row gap-8">
-        {/* Sidebar Filters */}
-        <aside className="w-full lg:w-64 space-y-8">
-          <div className="bg-white p-6 rounded-2xl border border-gray-100 shadow-sm sticky top-24">
-            <div className="flex items-center justify-between mb-6">
-              <h2 className="font-bold text-gray-800 flex items-center gap-2 text-lg">
-                <FunnelIcon className="h-5 w-5 text-primary-600" />
+        <aside className="w-full lg:w-72 space-y-8">
+          <div className="bg-white p-8 rounded-[2rem] border border-slate-100 shadow-xl shadow-slate-200/50 sticky top-24">
+            <div className="flex items-center justify-between mb-8">
+              <h2 className="font-brand font-bold text-slate-900 flex items-center gap-3 text-xl">
+                <FunnelIcon className="h-6 w-6 text-primary-600" />
                 Filters
               </h2>
               {selectedCategory !== 'All' && (
                 <button 
                   onClick={() => handleCategoryChange('All')}
-                  className="text-xs font-bold text-primary-600 hover:underline"
+                  className="text-sm font-bold text-primary-600 hover:text-primary-700 transition-colors"
                 >
-                  Reset
+                  Clear
                 </button>
               )}
             </div>
