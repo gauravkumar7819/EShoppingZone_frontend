@@ -2,22 +2,18 @@ import React, { useState, useEffect, useRef } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { useAuth } from '../../contexts/AuthContext';
 import { useCart } from '../../contexts/CartContext';
-import { useTheme } from '../../contexts/ThemeContext';
 import { 
   ShoppingCartIcon, 
   UserIcon, 
   HomeIcon,
   WalletIcon,
   ClipboardDocumentListIcon,
-  ChartBarIcon,
-  SunIcon,
-  MoonIcon
+  ChartBarIcon
 } from '@heroicons/react/24/outline';
 
 const Navbar = () => {
   const { user, logout } = useAuth();
   const { getTotalItems, setIsOpen } = useCart();
-  const { isDark, toggleTheme } = useTheme();
   const [showMobileMenu, setShowMobileMenu] = useState(false);
   const [showUserMenu, setShowUserMenu] = useState(false);
 
@@ -72,19 +68,6 @@ const Navbar = () => {
                 </Link>
               </>
             )}
-
-            {/* Theme Toggle */}
-            <button
-              onClick={toggleTheme}
-              className="p-2 text-gray-600 dark:text-gray-300 hover:text-primary-600 dark:hover:text-primary-400 transition-colors"
-              title={isDark ? 'Switch to light mode' : 'Switch to dark mode'}
-            >
-              {isDark ? (
-                <SunIcon className="h-6 w-6" />
-              ) : (
-                <MoonIcon className="h-6 w-6" />
-              )}
-            </button>
 
             {/* Cart Icon */}
             <button
